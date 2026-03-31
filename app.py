@@ -36,6 +36,7 @@ def register():
         """, (name,mobile,email,aadhaar,pan,address,password))
 
         mysql.connection.commit()
+        flash("User registration successfully")
         return redirect(url_for("index"))
 
     return render_template("register.html")
@@ -90,7 +91,7 @@ def deposit():
         mysql.connection.commit()
         flash("Deposit successfull")
         return redirect(url_for("dashboard"))
-
+    
     return render_template("deposit.html",accounts=account)
 
 @app.route("/withdraw", methods=["GET","POST"])
@@ -141,8 +142,8 @@ def withdraw():
 def create_account():
     if request.method == "POST":
         user_id = session["user"]["userid"]
-        acc_type = request.form["type"]
-        balance = request.form["balance"]
+        acc_type = request.form["acc_type"]
+        balance = request.form["in_balance"]
         tpin = request.form["tpin"]
 
         cur = mysql.connection.cursor()
@@ -152,6 +153,7 @@ def create_account():
         """,(user_id,acc_type,balance,tpin))
 
         mysql.connection.commit()
+        flash("Account Successfully Opened")
         return redirect(url_for("dashboard"))
 
     return render_template("create_account.html")

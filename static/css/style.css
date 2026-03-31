@@ -58,3 +58,12 @@ body {
     color: aqua;
     margin: 10px;
 }
+
+#backbutton{
+    display: flex;
+    flex-direction:column;
+}
+
+#tran_tab{
+    color: aliceblue;
+}

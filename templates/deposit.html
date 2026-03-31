@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bank Simulator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
@@ -18,7 +18,9 @@
         {% endwith %}
     </div>
 
-    <form action="/deposit" method="post">
+    <div>
+        {% if accounts %}
+        <form action="/deposit" method="post" class="form">
         <div>
             <label for="acc_num">Accounts</label>
 
@@ -35,7 +37,17 @@
         <div>
             <button type="submit">Deposit</button>
         </div>
-    </form>
+        </form>
+        {% else %}
+        <div style="color: aliceblue;">
+            <p>Account not fount</p>
+            <p>Please create an account</p>
+        </div>
+        {% endif %}
+        <br>
+        <a href="/dashboard" class="link">⬅ Back to Dashboard</a>
+    </div>
+    
     
 </body>
 </html>

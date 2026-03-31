@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Bank Simulator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
@@ -43,8 +43,9 @@
 
     <br>
     
-    {% if data %}
-    <div style="color: aliceblue;">
+    <div id="tran_tab">
+        {% if data %}
+    <div>
         <div>
             <a href="/export">
                 <button>Export CSV</button>
@@ -73,8 +74,9 @@
     {% else %}
         <p>No transactions found</p>
     {% endif %}
+    </div>
     <br>
-    <a href="/dashboard">⬅ Back to Dashboard</a>
+    <a href="/dashboard" class="link">⬅ Back to Dashboard</a>
 </div>
 </body>
 </html>
