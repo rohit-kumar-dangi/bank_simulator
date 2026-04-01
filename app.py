@@ -112,14 +112,14 @@ def withdraw():
         tpin = request.form["tpin"]
         tpin=int(tpin)
         cur = mysql.connection.cursor()
-        cur.execute("SELECT t_pin FROM accounts WHERE acc_no=%s",(acc_num))
+        cur.execute("SELECT t_pin FROM accounts WHERE acc_no=%s",(acc_num,))
         pin = cur.fetchone()
         t_pin=int(pin[0])
         if (tpin!=t_pin) :
             flash("Incorrect Transaction Pin")
             return redirect(url_for("withdraw"))
         
-        cur.execute("SELECT balance FROM accounts WHERE acc_no=%s",(acc_num))
+        cur.execute("SELECT balance FROM accounts WHERE acc_no=%s",(acc_num,))
         bal = cur.fetchone()
         balance=int(bal[0])
         amount=int(amount)
