@@ -3,6 +3,7 @@ from flask_mysqldb import MySQL
 import os
 from dotenv import load_dotenv
 import csv
+import random
 
 app=Flask(__name__)
 app.secret_key = "Rohit_bank_sim"
@@ -147,10 +148,18 @@ def create_account():
         tpin = request.form["tpin"]
 
         cur = mysql.connection.cursor()
-        cur.execute("""
-            INSERT INTO accounts (user_id, type, balance, t_pin)
-            VALUES (%s,%s,%s,%s)
-        """,(user_id,acc_type,balance,tpin))
+        cur.execute("""SELECT acc_no FROM accounts""")
+        accs=cur.fetchall()
+        key=True
+        while(key):
+            acc_no=random.randint(100000000000, 999999999999)
+            key=False
+            for i in accs:
+                acc_t_no=int(i[0])
+                if acc_t_no==acc_no:
+                    key=True
+
+        cur.execute("""INSERT INTO accounts (acc_no,user_id, type, balance, t_pin) VALUES (%s,%s,%s,%s,%s)""",(acc_no,user_id,acc_type,balance,tpin))
 
         mysql.connection.commit()
         flash("Account Successfully Opened")

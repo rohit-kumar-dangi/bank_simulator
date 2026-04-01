@@ -1,4 +1,3 @@
-
 body {
     margin: 0;
     height: 100vh;
@@ -8,21 +7,6 @@ body {
     align-items: center;
 
     background: #2e416d;
-}
-
-.form{
-    background:#b3b7be;
-    padding:20px;
-    border-radius:10px;
-    width:300px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.option{
-    display: flex;
-    flex-direction: column;
 }
 
 #accounts{
@@ -57,13 +41,4 @@ body {
 .link{
     color: aqua;
     margin: 10px;
-}
-
-#backbutton{
-    display: flex;
-    flex-direction:column;
-}
-
-#tran_tab{
-    color: aliceblue;
 }

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bank Simulator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
 </head>
 <body>
     <div>
@@ -23,7 +24,13 @@
             </div>
             <div>
                 {% for acc in accounts %}
-                    <div class="account_card"><div class="acc"><div class="acc_ele">Acc No: {{ acc[0] }}</div> <div class="acc_ele">Balance: ₹{{ acc[3] }}</div></div></div>
+                    <div class="account_card">
+                        <div class="acc">
+                            <div class="acc_ele">Acc No : {{ acc[0] }}</div>
+                            <div class="acc_ele">Acc Type : {{ acc[2] }}</div>
+                            <div class="acc_ele">Balance : ₹{{ acc[3] }}</div>
+                        </div>
+                    </div>
                 {% endfor %}
             </div>
         </div>
