@@ -62,12 +62,28 @@
                     <th>Date & Time</th>
                 </tr>
                 {% for d in data %}
-                <tr>
-                    <td>{{ d[1] }}</td>
-                    <td>₹{{ d[2] }}</td>
-                    <td>{{ d[3] }}</td>
-                    <td>{{ d[4] }}</td>
-                </tr>
+                    {% if d[3]=="Deposit" %}
+                        <tr style="color: lightgreen;">
+                            <td>{{ d[1] }}</td>
+                            <td>₹{{ d[2] }}</td>
+                            <td>{{ d[3] }}</td>
+                            <td>{{ d[4] }}</td>
+                        </tr>
+                    {% elif d[3]=="Withdraw" %}
+                        <tr style="color: red;">
+                            <td>{{ d[1] }}</td>
+                            <td>₹{{ d[2] }}</td>
+                            <td>{{ d[3] }}</td>
+                            <td>{{ d[4] }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td>{{ d[1] }}</td>
+                            <td>₹{{ d[2] }}</td>
+                            <td>{{ d[3] }}</td>
+                            <td>{{ d[4] }}</td>
+                        </tr>
+                    {% endif %}
                 {% endfor %}
             </table>
         </div>
