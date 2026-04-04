@@ -32,7 +32,3 @@ CREATE TABLE transactions (
     FOREIGN KEY (acc_no) REFERENCES accounts(acc_no),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
-
-SELECT * FROM users;
-SELECT * FROM accounts;
-SELECT * FROM transactions;
